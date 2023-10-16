@@ -30,10 +30,10 @@
                 v-on:click="openDialog(item)"
                 style="height: 80%;  border-radius: 10px;  color: white; font-size: 15px;"
               >
-                <div>
+                <div style="padding-top: 10px;">
                   <p>{{ item.court_name }}</p>
                   <p
-                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '20px' }"
+                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '23px' }"
                   >{{ item.court_status.status_name }}</p>
                 </div>
               </v-btn>
@@ -49,10 +49,10 @@
                 v-on:click="openDialog(item)"
                 style="height: 80%;  border-radius: 10px;  color: white; font-size: 15px; "
               >
-                <div>
+                <div style="padding-top: 10px;">
                   <p>{{ item.court_name }}</p>
                   <p
-                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '20px' }"
+                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '23px' }"
                   >{{ item.court_status.status_name }}</p>
                 </div>
               </v-btn>
@@ -68,10 +68,10 @@
                 v-on:click="openDialog(item)"
                 style="height: 80%;  border-radius: 10px;  color: white; font-size: 15px;"
               >
-                <div>
+                <div style="padding-top: 10px;">
                   <p>{{ item.court_name }}</p>
                   <p
-                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '20px' }"
+                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '23px' }"
                   >{{ item.court_status.status_name }}</p>
                 </div>
               </v-btn>
@@ -87,10 +87,10 @@
                 v-on:click="openDialog(item)"
                 style="height: 80%;  border-radius: 10px;  color: white; font-size: 15px; "
               >
-                <div>
+                <div style="padding-top: 10px;">
                   <p>{{ item.court_name }}</p>
                   <p
-                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '20px' }"
+                    :style="{ color: item.court_status.status_id === 1 ? '#000000' : 'white', fontSize: '23px' }"
                   >{{ item.court_status.status_name }}</p>
                 </div>
               </v-btn>

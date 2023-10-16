@@ -4,6 +4,11 @@
       <v-app-bar-nav-icon @click="drawer = !drawer" class="burger-icon" style="color: #8b47fa"></v-app-bar-nav-icon>
       <h2 class="text-BadCourt">Badminton Court</h2>
       <v-spacer></v-spacer>
+     
+      <div class="box-username">
+      <body>คุณ : </body>  &nbsp;
+      <body>{{userfirstName}}</body>  &nbsp; <body>{{userlastName}}</body>
+      </div>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app temporary >
@@ -43,12 +48,20 @@ export default {
         this.$router.push({ path: "/resultcourt" }).catch(() => {});
       }
       this.drawer = false;
-    }
+    },
+    showUserData() {
+            const dataUser = JSON.parse(localStorage.getItem('dataUser'));
+            console.log('Data User:', dataUser); 
+             this.userfirstName = dataUser.firstName;
+             this.userlastName = dataUser.lastName;
+        },
   },
   data() {
     return {
       drawer: false,
       group: null,
+      userfirstName: '',
+      userlastName: '',
       items: [
         {
           title: "ตารางการใช้งานสนาม",
@@ -60,7 +73,10 @@ export default {
         }
       ]
     };
-  }
+  },
+  mounted() {
+            this.showUserData();
+        }
 };
 </script>
 
@@ -74,5 +90,16 @@ export default {
   border-radius: 10px;
   margin-left: 9px;
   margin-right: 9px;
+}
+.box-username{
+  display: flex;
+  background-color: #ffffff;
+  border: 2px solid #8b47fa;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #8b47fa;
+ 
 }
 </style>

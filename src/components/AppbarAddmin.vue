@@ -4,6 +4,11 @@
       <v-app-bar-nav-icon @click="drawer = !drawer" class="burger-icon" style="color: #8b47fa"></v-app-bar-nav-icon>
       <h2 class="text-addmin">Admin</h2>
       <v-spacer></v-spacer>
+      <div class="box-username">
+      <body>คุณ : </body>  &nbsp;
+      <body>{{userfirstName}}</body>  &nbsp; <body>{{userlastName}}</body>
+      </div>
+    
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app temporary>
@@ -29,6 +34,7 @@
 <script>
 export default {
     methods: {
+
     register() {
       this.$router.push({ path: "/register" }).catch(() => {});
     },
@@ -42,12 +48,21 @@ export default {
         this.$router.push({ path: "/resultreserve" }).catch(() => {});
       }
       this.drawer = false;
-    }
+    },
+    showUserData() {
+            const dataUser = JSON.parse(localStorage.getItem('dataUser'));
+            console.log('Data User:', dataUser); 
+             this.userfirstName = dataUser.m_firstName;
+             this.userlastName = dataUser.m_lastName;
+        },
+    
   },
   data() {
     return {
       drawer: false,
       group: null,
+      userfirstName: '',
+      userlastName: '',
       items: [
         {
           title: "จัดการสนาม",
@@ -59,7 +74,11 @@ export default {
         }
       ]
     };
-  }
+  },
+  mounted() {
+            this.showUserData();
+        }
+
 };
 
 </script>
@@ -74,5 +93,16 @@ export default {
   border-radius: 10px;
   margin-left: 9px;
   margin-right: 9px;
+}
+.box-username{
+  display: flex;
+  background-color: #ffffff;
+  border: 2px solid #8b47fa;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #8b47fa;
+ 
 }
 </style>
